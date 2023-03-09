@@ -21,3 +21,10 @@ public class Personagem{
     /*Para pular linha no windowns tem que colocar /r/n  no linux é \n , para pular linha idempendente da plataforma, coloca-se %n */
 }
 /*Classe com auto coesão -> classe faz somente uma coisa */
+
+
+/*A letra A significa: que foi adicionado e está pronto para fazer um commmit
+  A letra M significa que o arquivo foi modificado
+ Quando os arquivos estão verdes significa que esta em staged(pronto para um commit)
+ A letra U significa que esta Untracked: não esta sendo monitorado pelo git 
+*/
