@@ -1,45 +1,62 @@
 import static java.lang.Math.min;
 public class Personagem{
     String nome;
-    int energia = 10 ;
-    int fome = 0;
-    int sono = 0;
+    private int energia = 10 ;
+    private int fome = 0;
+    private int sono = 0;
+    
+    //construtor 
+    public Personagem(int energia, int fome, int sono){
+        //a variavel local prevalece, a global (shadow)
+        System.out.println("Construindo um objeto...");
+        this.energia = energia;
+        this.fome = fome;
+        this.sono = sono;
+    }
 
     /*Isso é um metodo de instância */
     void cacar(){
-        System.out.println(nome + "cacando");
+        System.out.println(nome + " cacando");
         if (energia >= 2){
-            System.out.println(nome + "cacando");
+            System.out.println(nome + " cacando");
             //energia = energia -2;
             energia -= 2;
         }
         else{
-            System.out.println(nome + "sem energia para cacar");
+            System.out.println(nome + " sem energia para cacar");
         }
         fome = Math.min(fome +1 , 10);
+        System.out.println(obterEstado());
+        
     }
 
     void comer(){
         if(fome >= 1){
-            System.out.print(nome + "comendo\n");
+            System.out.println(nome + " comendo\n");
             energia = min(energia + 1,10);
             --fome;
         }
         else{
             System.out.println(nome + "Sem fome ");
         }
+        System.out.println(obterEstado());
     }
 
     void dormir(){
         if(sono >= 1){//nãp tem como ficar menor que por conta dessa verficação 
-        System.out.printf("%s dormindo%n");
+        System.out.printf("%s dormindo%n",nome);
         energia = energia + 1 < 10?energia + 1 : 10;
-
         sono--;
         }
+        else{
+            System.out.println("Sem sono");
+        }
+        System.out.println(obterEstado());
     }
 
-
+    String obterEstado(){
+        return String.format("e(%d), s(%d), f(%d)", energia, sono, fome);
+    }
 
 
     
